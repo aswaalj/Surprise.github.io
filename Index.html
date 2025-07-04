@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: fall 8s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .message-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 1.4em;
+      color: #ff3366;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message-box">
+    <h1>To My Sweetheart 💕</h1>
+    <div class="message" id="typedText"></div>
+  </div>
+
+  <!-- Falling hearts -->
+  <script>
+    const hearts = "💖💘💝❤️‍🔥💕💞".split("");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Typing effect -->
+  <script>
+    const text = `Every moment with you feels like magic. 💫
+
+You light up my world in ways I never thought possible. 
+This little page is just a small way to say… I LOVE YOU ❤️
+
+Forever yours,
+[Your Name]`;
+
+    let index = 0;
+    function typeLetter() {
+      if (index < text.length) {
+        document.getElementById("typedText").innerText += text[index];
+        index++;
+        setTimeout(typeLetter, 50);
+      }
+    }
+
+    window.onload = typeLetter;
+  </script>
+
+</body>
+</html>
