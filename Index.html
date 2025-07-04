@@ -2,105 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Love ❤️</title>
+  <title>For My Love</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-    }
-
-    .heart {
-      position: absolute;
-      color: red;
-      animation: fall 8s linear infinite;
-      font-size: 20px;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    .message-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
       text-align: center;
-    }
-
-    .message {
-      font-size: 1.4em;
-      color: #ff3366;
-      min-height: 100px;
-      white-space: pre-wrap;
+      padding: 50px;
+      animation: fadeIn 3s ease-in;
     }
 
     h1 {
-      color: #d63384;
-      margin-bottom: 20px;
+      font-size: 3em;
+      margin-top: 100px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+
+    .heart {
+      font-size: 5em;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+        color: #fff;
+      }
+      50% {
+        transform: scale(1.2);
+        color: red;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .button {
+      margin-top: 40px;
+      padding: 10px 20px;
+      background: white;
+      color: #ff3366;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .button:hover {
+      background: #ffe6eb;
     }
   </style>
 </head>
 <body>
-
-  <div class="message-box">
-    <h1>To My Sweetheart 💕</h1>
-    <div class="message" id="typedText"></div>
-  </div>
-
-  <!-- Falling hearts -->
-  <script>
-    const hearts = "💖💘💝❤️‍🔥💕💞".split("");
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
-      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-      document.body.appendChild(heart);
-
-      setTimeout(() => heart.remove(), 8000);
-    }
-
-    setInterval(createHeart, 300);
-  </script>
-
-  <!-- Typing effect -->
-  <script>
-    const text = `Every moment with you feels like magic. 💫
-
- I LOVE YOU ❤️
-
-Forever you,
-[ponnuttiyeeee]`;
-
-    let index = 0;
-    function typeLetter() {
-      if (index < text.length) {
-        document.getElementById("typedText").innerText += text[index];
-        index++;
-        setTimeout(typeLetter, 50);
-      }
-    }
-
-    window.onload = typeLetter;
-  </script>
-
+  <div class="heart">❤️</div>
+  <h1>Hey Love!</h1>
+  <p>You mean the world to me.</p>
+  <p>Just wanted to say... I LOVE YOU 💕</p>
+  <button class="button" onclick="alert('You are my everything! 💖')">Click Me</button>
 </body>
 </html>
